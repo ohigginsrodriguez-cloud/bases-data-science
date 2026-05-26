@@ -1,0 +1,20 @@
+{
+    "total_por_vendedor": {
+        "Ohiggins": 100000,
+        "Jorge": 70000,
+        "Ivan": 90000,
+        "Mario": 200000,
+        "Cesar": 500000,
+        "Dulce": 70000,
+        "Emmanuel": 90000,
+        "Sam": 20000,
+        "Vero": 40000,
+        "Andrea": 50000
+    },
+    "venta_mas_alta": {
+        "vendedor": "Cesar",
+        "monto": 500000,
+        "producto": "escritorio"
+    },
+    "promedio_general": 123000.0
+}
