@@ -8,7 +8,7 @@ Roadmap personal de aprendizaje para convertirme en científico de datos.
 - [x] Manejo de errores
 - [x] Clases y POO
 - [x] map, filter, lambda
-- [ ] CSV y JSON
+- [x] CSV y JSON
 - [ ] Ejercicio integrador Python
 
 ## Roadmap completo
