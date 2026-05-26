@@ -1,0 +1,32 @@
+[
+    {
+        "vendedor": "Ana",
+        "mes": "enero",
+        "monto": 15000,
+        "region": "norte"
+    },
+    {
+        "vendedor": "Luis",
+        "mes": "enero",
+        "monto": 8000,
+        "region": "sur"
+    },
+    {
+        "vendedor": "Ana",
+        "mes": "febrero",
+        "monto": 20000,
+        "region": "norte"
+    },
+    {
+        "vendedor": "Eva",
+        "mes": "enero",
+        "monto": 12000,
+        "region": "norte"
+    },
+    {
+        "vendedor": "Luis",
+        "mes": "febrero",
+        "monto": 9500,
+        "region": "sur"
+    }
+]
