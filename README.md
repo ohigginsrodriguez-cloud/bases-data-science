@@ -9,7 +9,11 @@ Roadmap personal de aprendizaje para convertirme en científico de datos.
 - [x] Clases y POO
 - [x] map, filter, lambda
 - [x] CSV y JSON
-- [ ] Ejercicio integrador Python
+- [x] Ejercicio integrador Python
+- [x] Entorno y tooling
+- [x] Git
+- [x] Buenas prácticas — black, docstrings, dotenv, logging
+- [ ] SQL con PostgreSQL
 
 ## Roadmap completo
 1. Python completo
