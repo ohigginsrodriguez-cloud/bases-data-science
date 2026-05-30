@@ -24,6 +24,14 @@ where total > (
 -- 1. Productos cuyo monto promedio supera 
 --    el promedio general de todos los montos
 
+select producto, monto, promedio, promedio_general
+from (
+	select 
+		producto,
+		monto,
+		
+)
+
 -- 2. El vendedor con el monto más alto en cada mes
 --    (usa subquery con ROW_NUMBER)
 
