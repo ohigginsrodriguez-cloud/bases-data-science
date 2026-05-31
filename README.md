@@ -36,3 +36,9 @@ Roadmap personal de aprendizaje para convertirme en científico de datos.
 8. Visualización — matplotlib, seaborn, Power BI
 9. Machine Learning
 10. Ingeniería y deployment
+
+## Proyectos de portafolio
+
+- [ ] Proyecto 1 — Análisis exploratorio de acciones (después de visualización)
+- [ ] Proyecto 2 — Predicción con ML (después de machine learning)
+- [ ] Proyecto 3 — Pipeline completo con API (después de deployment)
