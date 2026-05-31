@@ -17,7 +17,7 @@ Roadmap personal de aprendizaje para convertirme en científico de datos.
 - [x] SQL — Window functions
 - [x] SQL — Subqueries
 - [x] SQL — CTEs
-- [ ] SQL — Índices y performance
+- [x] SQL — Índices y performance
 - [ ] SQL — Python + PostgreSQL
 - [ ] Estadística
 - [ ] pandas y numpy
