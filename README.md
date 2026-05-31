@@ -13,7 +13,17 @@ Roadmap personal de aprendizaje para convertirme en científico de datos.
 - [x] Entorno y tooling
 - [x] Git
 - [x] Buenas prácticas — black, docstrings, dotenv, logging
-- [ ] SQL con PostgreSQL
+- [x] SQL — GROUP BY, HAVING, ORDER BY, LIMIT
+- [x] SQL — Window functions
+- [x] SQL — Subqueries
+- [ ] SQL — CTEs
+- [ ] SQL — Índices y performance
+- [ ] SQL — Python + PostgreSQL
+- [ ] Estadística
+- [ ] pandas y numpy
+- [ ] Visualización
+- [ ] Machine Learning
+- [ ] Ingeniería y deployment
 
 ## Roadmap completo
 1. Python completo
