@@ -16,7 +16,7 @@ Roadmap personal de aprendizaje para convertirme en científico de datos.
 - [x] SQL — GROUP BY, HAVING, ORDER BY, LIMIT
 - [x] SQL — Window functions
 - [x] SQL — Subqueries
-- [ ] SQL — CTEs
+- [x] SQL — CTEs
 - [ ] SQL — Índices y performance
 - [ ] SQL — Python + PostgreSQL
 - [ ] Estadística
