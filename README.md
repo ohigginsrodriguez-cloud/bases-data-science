@@ -19,7 +19,7 @@ Roadmap personal de aprendizaje para convertirme en científico de datos.
 - [x] SQL — CTEs
 - [x] SQL — Índices y performance
 - [x] SQL — Integrador completo
-- [ ] SQL — Python + PostgreSQL
+- [x] SQL — Python + PostgreSQL
 - [ ] Estadística
 - [ ] pandas y numpy
 - [ ] Visualización
