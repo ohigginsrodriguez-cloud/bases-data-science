@@ -40,6 +40,7 @@ Roadmap personal de aprendizaje para convertirme en científico de datos.
 
 ## Proyectos de portafolio
 
-- [ ] Proyecto 1 — Análisis exploratorio de acciones (después de visualización)
-- [ ] Proyecto 2 — Predicción con ML (después de machine learning)
-- [ ] Proyecto 3 — Pipeline completo con API (después de deployment)
+- [ ] Proyecto 1 — IntelliStock: análisis y predicción de inventario para PYMEs
+- [ ] Proyecto 2 — Análisis exploratorio de acciones (después de visualización)
+- [ ] Proyecto 3 — Predicción con ML (después de machine learning)
+- [ ] Proyecto 4 — Pipeline completo con API (después de deployment)
