@@ -20,9 +20,10 @@ Roadmap personal de aprendizaje para convertirme en científico de datos.
 - [x] SQL — Índices y performance
 - [x] SQL — Integrador completo
 - [x] SQL — Python + PostgreSQL
-- [ ] Estadística
-- [ ] pandas y numpy
-- [ ] Visualización
+- [x] Estadística — descriptiva, correlación, distribuciones, tests de hipótesis
+- [x] pandas y numpy — DataFrames, limpieza, fechas, merge, groupby
+- [x] Visualización — matplotlib, seaborn, EDA completo
+- [ ] Power BI (pendiente, se hará con datos reales de un proyecto)
 - [ ] Machine Learning
 - [ ] Ingeniería y deployment
 
