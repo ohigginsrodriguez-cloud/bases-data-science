@@ -8,6 +8,7 @@ app = FastAPI()
 
 # Entidad user
 class User(BaseModel):
+    id: int
     name: str
     surname: str
     url: str
@@ -15,13 +16,13 @@ class User(BaseModel):
 
 
 users_list = [
-    User(name="pulpo", surname="king", url="https://pulpo.com", age=20),
-    User(name="anuel", surname="AA", url="https://anuel.com", age=34),
-    User(name="drake", surname="iceman", url="https://iceman.com", age=36),
+    User(id=1, name="pulpo", surname="king", url="https://pulpo.com", age=20),
+    User(id=2, name="anuel", surname="AA", url="https://anuel.com", age=34),
+    User(id=3, name="drake", surname="iceman", url="https://iceman.com", age=36),
 ]
 
 
-@app.get("/usersjson")
+@app.get("/usersjson")  # path
 async def usersjson():
     return [
         {"name": "pulpo", "surname": "king", "url": "https://pulpo.com", "age": 20},
@@ -30,6 +31,26 @@ async def usersjson():
     ]
 
 
-@app.get("/users")
+@app.get("/users")  # path
 async def users():
     return users_list
+
+
+@app.get("/user/{id}")  # query
+async def user(id: int):
+    users = filter(lambda x: x.id == id, users_list)
+
+    try:
+        return list(users)[0]
+    except:
+        return {"error": "User not found"}
+
+
+@app.get("/userquery/")
+async def user(id: int):
+    users = filter(lambda x: x.id == id, users_list)
+
+    try:
+        return list(users)[0]
+    except:
+        {"error": "User not found"}
