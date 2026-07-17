@@ -1,7 +1,9 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-app = FastAPI()
+router = APIRouter(
+    prefix="/users", tags=["users"], responses={404: {"message": "Not found"}}
+)
 
 # Iniciar server: uvicorn users:app --reload
 
@@ -22,7 +24,7 @@ users_list = [
 ]
 
 
-@app.get("/usersjson")  # path
+@router.get("/usersjson")  # path
 async def usersjson():
     return [
         {"name": "pulpo", "surname": "king", "url": "https://pulpo.com", "age": 20},
@@ -31,17 +33,17 @@ async def usersjson():
     ]
 
 
-@app.get("/users/")  # path
+@router.get("/users/")  # path
 async def users():
     return users_list
 
 
-@app.get("/user/{id}/")  # query
+@router.get("/user/{id}/")  # query
 async def user(id: int):
     return search_user(id)
 
 
-@app.post("/user/", status_code=201)  # define status code
+@router.post("/user/", status_code=201)  # define status code
 async def user(user: User):
 
     if type(search_user(user.id)) == User:
@@ -54,7 +56,7 @@ async def user(user: User):
         return user
 
 
-@app.put("/user/")
+@router.put("/user/")
 async def user(user: User):
 
     found = False
@@ -70,7 +72,7 @@ async def user(user: User):
         return user
 
 
-@app.delete("/user/{id}/")
+@router.delete("/user/{id}/")
 async def user(id: int):
 
     found = False
