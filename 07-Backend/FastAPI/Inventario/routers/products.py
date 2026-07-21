@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel
 
 router = APIRouter(prefix="/products", tags=["products"])
@@ -14,12 +14,22 @@ class ProductAPI(ProductClient):
     id: int
 
 
+inventory: dict[int, ProductAPI] = {}
+next_id: int = 1
+
+
 @router.get("/")
 async def products():
-    return
+    if not inventory:
+        raise HTTPException(
+            status_code=status.HTTP_200_OK,
+            detail={"message": "No products, add one"},
+        )
+
+    return list(inventory.values)
 
 
-@router.get("/{id}/")
+@router.get("/{id}")
 async def product(id: int):
     return
 
@@ -29,11 +39,11 @@ async def create_product(product: ProductClient):
     return
 
 
-@router.put("/{id}/")
+@router.put("/{id}")
 async def update_product(id: int):
     return
 
 
-@router.delete("/{id}/")
+@router.delete("/{id}")
 async def delete_product(id: int):
     return
