@@ -1,5 +1,5 @@
 from routers import products
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 
 app = FastAPI()
 

@@ -1,13 +1,17 @@
 from fastapi import APIRouter, HTTPException, status
-from pydantic import BaseModel
+from pydantic import BaseModel, Field  # Field es para add restrictions
 
 router = APIRouter(prefix="/products", tags=["products"])
 
 
 class ProductClient(BaseModel):
-    name: str
-    price: float
-    stock: int
+    name: str = Field(min_length=1, max_length=25, description="Product name")
+    price: float = Field(
+        gt=0, description="Product price must be greater than 0"
+    )  # gt = greater than
+    stock: int = Field(
+        ge=0, description="Product stock can't be lesser than 0"
+    )  # ge = greater or equal
 
 
 class ProductUpdate(BaseModel):
@@ -37,7 +41,7 @@ def search_product(id: int):
 
 
 @router.get("/")
-async def products():
+async def list_products():
     """Return all products"""
     if not inventory:
         return []
@@ -45,24 +49,22 @@ async def products():
     return list(inventory.values())
 
 
-@router.get("/product/{id}")
-async def product(id: int):
+@router.get("/{id}")
+async def get_product(id: int):
     """Return specific product by id"""
     return search_product(id)
 
 
-@router.post("/add-product/")
+@router.post("/")
 async def create_product(product: ProductClient):
     """Create a product using pydantic validation"""
 
     global next_id
 
-    search_name = any(i.name == product.name for i in inventory.values())
-
-    if search_name is True:
+    if any(i.name == product.name for i in inventory.values()):
         raise HTTPException(
             status_code=status.HTTP_406_NOT_ACCEPTABLE,
-            detail={"meessage": "product already exists"},
+            detail={"message": "product already exists"},
         )
 
     new_product = ProductAPI(**product.model_dump(), id=next_id + 1)
