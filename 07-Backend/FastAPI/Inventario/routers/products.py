@@ -78,7 +78,9 @@ async def update_product(id: int, body: ProductUpdate):
     product = search_product(id)
 
     for key, value in body.model_dump(exclude_unset=True).items():
+        # .model_dump() extrae solo los elementos que no son null, .items() hace que sean tuplas para poder desarmar
         setattr(product, key, value)
+        # modifica el objeto recibiendo clave y valor
 
     return product
 
@@ -86,4 +88,8 @@ async def update_product(id: int, body: ProductUpdate):
 @router.delete("/{id}")
 async def delete_product(id: int):
     """Delete a product"""
-    return
+    search_product(id)
+
+    inventory.pop(id)
+
+    return {"message": "product deleted"}
