@@ -15,7 +15,7 @@ class ProductAPI(ProductClient):
 
 
 inventory: dict[int, ProductAPI] = {}
-next_id: int = 1
+next_id: int = 0
 
 
 def search_product(id: int):
@@ -45,16 +45,25 @@ async def product(id: int):
     return search_product(id)
 
 
-@router.post("/")
-async def create_product(product: ProductAPI):
+@router.post("/add-product/")
+async def create_product(product: ProductClient):
     """Create a product using pydantic validation"""
-    if search_product(product.id) == product:
+
+    global next_id
+
+    search_name = any(i.name == product.name for i in inventory.values())
+
+    if search_name is True:
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail={"message": "product already exists"},
+            status_code=status.HTTP_406_NOT_ACCEPTABLE,
+            detail={"meessage": "product already exists"},
         )
 
-    return
+    new_product = ProductAPI(**product.model_dump(), id=next_id + 1)
+    inventory[next_id + 1] = new_product
+    next_id += 1
+
+    return new_product
 
 
 @router.put("/{id}")
