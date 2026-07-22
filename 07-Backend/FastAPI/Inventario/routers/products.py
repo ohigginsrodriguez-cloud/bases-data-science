@@ -19,42 +19,51 @@ next_id: int = 1
 
 
 def search_product(id: int):
-    product = filter(lambda x: x.id == id, inventory)
+    product = inventory.get(id)
 
-    try:
-        return list(product[0])
-    except:
+    if product is None:
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail={"message": "User not found"}
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={"message": "Product not found"},
         )
+
+    return product
 
 
 @router.get("/")
 async def products():
+    """Return all products"""
     if not inventory:
-        raise HTTPException(
-            status_code=status.HTTP_200_OK,
-            detail={"message": "No products, add one"},
-        )
+        return []
 
-    return list(inventory.values)
+    return list(inventory.values())
 
 
-@router.get("/{id}")
+@router.get("/product/{id}")
 async def product(id: int):
+    """Return specific product by id"""
     return search_product(id)
 
 
 @router.post("/")
-async def create_product(product: ProductClient):
+async def create_product(product: ProductAPI):
+    """Create a product using pydantic validation"""
+    if search_product(product.id) == product:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={"message": "product already exists"},
+        )
+
     return
 
 
 @router.put("/{id}")
 async def update_product(id: int):
+    """Update a existent product"""
     return
 
 
 @router.delete("/{id}")
 async def delete_product(id: int):
+    """Delete a product"""
     return
