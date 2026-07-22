@@ -10,6 +10,12 @@ class ProductClient(BaseModel):
     stock: int
 
 
+class ProductUpdate(BaseModel):
+    name: str | None = None
+    price: float | None = None
+    stock: int | None = None
+
+
 class ProductAPI(ProductClient):
     id: int
 
@@ -67,9 +73,14 @@ async def create_product(product: ProductClient):
 
 
 @router.put("/{id}")
-async def update_product(id: int):
+async def update_product(id: int, body: ProductUpdate):
     """Update a existent product"""
-    return
+    product = search_product(id)
+
+    for key, value in body.model_dump(exclude_unset=True).items():
+        setattr(product, key, value)
+
+    return product
 
 
 @router.delete("/{id}")
